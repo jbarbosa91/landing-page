@@ -1,0 +1,15 @@
+<section id="galeria" class="gallery-section">
+  <div class="container">
+    <h2 class="section-title">Galeria</h2>
+    <p class="section-subtitle">Conheça o Mira' Douro através das nossas imagens</p>
+    
+    <div class="gallery-grid">
+      <div *ngFor="let image of images; trackBy: trackByFn" 
+           class="gallery-item">
+        <div class="gallery-item-inner">
+          <img [src]="image" [alt]="'Imagem ' + (images.indexOf(image) + 1) + ' do Mira\' Douro'" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

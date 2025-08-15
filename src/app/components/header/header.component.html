@@ -1,0 +1,26 @@
+<header [class.scrolled]="isScrolled" [class.menu-open]="isMenuOpen">
+  <div class="container">
+    <div class="logo">
+      <a href="#inicio">Mira' Douro</a>
+    </div>
+    
+    <nav [class.active]="isMenuOpen">
+      <ul>
+        <li *ngFor="let link of navLinks">
+          <a 
+            [href]="link.href"
+            [class.active]="activeLink === link.href"
+            (click)="closeMenu(); setActiveLink(link.href)">
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+    
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,28 @@
+<section id="tipologias" class="section typologies-section">
+  <div class="container">
+    <h2 class="section-title">Tipologias Disponíveis</h2>
+    <p class="section-subtitle">Conheça as nossas opções de apartamentos cuidadosamente projetados</p>
+    
+    <div class="typologies-grid">
+      <div *ngFor="let typology of typologies; trackBy: trackByFn" 
+           #typologyCard
+           class="typology-card" 
+           [attr.data-delay]="typologies.indexOf(typology) * 0.1">
+        <div class="typology-header">
+          <h3>{{ typology.tipo }} <span>•</span> {{ typology.area }}</h3>
+        </div>
+        <div class="typology-body">
+          <ul class="typology-features">
+            <li *ngFor="let feature of typology.descricao">
+              <i class="fas fa-check-circle"></i> {{ feature }}
+            </li>
+          </ul>
+          <div class="typology-footer">
+            <p class="price">{{ typology.preco }}</p>
+            <button class="btn btn-outline" (click)="scrollToContact()">Saber Mais</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

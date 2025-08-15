@@ -1,0 +1,187 @@
+<section id="contactos" class="contact-section">
+  <div class="container">
+    <div class="contact-content">
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <h2 class="section-title">Fale Connosco</h2>
+        <p class="contact-description">
+          Estamos disponíveis para esclarecer todas as suas dúvidas sobre o empreendimento {{ projectName }}. 
+          Entre em contacto através dos meios abaixo ou preencha o formulário ao lado.
+        </p>
+        
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-text">
+              <h3>Morada</h3>
+              <p>{{ location }}</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-text">
+              <h3>Telefone</h3>
+              <p>+351 123 456 789</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-text">
+              <h3>Email</h3>
+              <p>info@miradouro.pt</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-text">
+              <h3>Horário</h3>
+              <p>Segunda - Sexta: 09:00 - 19:00</p>
+              <p>Sábado: 10:00 - 14:00</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="contact-form-container">
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="formData.name" 
+              #name="ngModel"
+              required
+              minlength="2"
+              placeholder="Nome Completo *">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+              <span *ngIf="name.errors?.['required']">O nome é obrigatório</span>
+              <span *ngIf="name.errors?.['minlength']">O nome deve ter pelo menos 2 caracteres</span>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="formData.email" 
+                #email="ngModel"
+                required
+                email
+                placeholder="Email *">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+                <span *ngIf="email.errors?.['required']">O email é obrigatório</span>
+                <span *ngIf="email.errors?.['email']">Por favor, insira um email válido</span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                [(ngModel)]="formData.phone" 
+                #phone="ngModel"
+                required
+                pattern="[0-9+\-\s()]*"
+                placeholder="Telefone *">
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
+                <span *ngIf="phone.errors?.['required']">O telefone é obrigatório</span>
+                <span *ngIf="phone.errors?.['pattern']">Por favor, insira um número de telefone válido</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <select 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="formData.subject" 
+              #subject="ngModel"
+              required>
+              <option value="" disabled selected>Assunto *</option>
+              <option value="info">Informações Gerais</option>
+              <option value="visit">Agendar Visita</option>
+              <option value="investment">Oportunidades de Investimento</option>
+              <option value="other">Outro Assunto</option>
+            </select>
+            <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="error-message">
+              <span>Por favor, selecione um assunto</span>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <textarea 
+              id="message" 
+              name="message" 
+              [(ngModel)]="formData.message" 
+              #message="ngModel"
+              required
+              minlength="10"
+              rows="4" 
+              placeholder="A sua mensagem *"></textarea>
+            <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error-message">
+              <span *ngIf="message.errors?.['required']">A mensagem é obrigatória</span>
+              <span *ngIf="message.errors?.['minlength']">A mensagem deve ter pelo menos 10 caracteres</span>
+            </div>
+          </div>
+          
+          <div class="form-group checkbox-group">
+            <input 
+              type="checkbox" 
+              id="privacy" 
+              name="privacy" 
+              [(ngModel)]="formData.privacy" 
+              #privacy="ngModel"
+              required>
+            <label for="privacy">
+              Li e aceito a <a href="#" (click)="openPrivacyModal($event)">Política de Privacidade</a> *
+            </label>
+            <div *ngIf="privacy.invalid && (privacy.dirty || privacy.touched)" class="error-message">
+              <span>É necessário aceitar a política de privacidade</span>
+            </div>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn btn-primary" 
+            [disabled]="!contactForm.valid || !formData.privacy || isSubmitting">
+            <span *ngIf="!isSubmitting">Enviar Mensagem</span>
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i> A enviar...
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

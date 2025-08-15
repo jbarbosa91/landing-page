@@ -1,0 +1,197 @@
+.typologies-section {
+  padding: 6rem 2rem;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #3498db;
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .typologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  
+  .typology-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    
+    &.reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .typology-header {
+      background: #2c3e50;
+      color: white;
+      padding: 1.5rem;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        
+        span {
+          color: #3498db;
+          font-size: 1.8rem;
+          line-height: 1;
+        }
+      }
+    }
+    
+    .typology-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      
+      .typology-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+        flex: 1;
+        
+        li {
+          padding: 0.5rem 0;
+          display: flex;
+          align-items: flex-start;
+          color: #4a5568;
+          line-height: 1.5;
+          
+          i {
+            color: #3498db;
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            font-size: 1.1rem;
+          }
+        }
+      }
+      
+      .typology-footer {
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid #edf2f7;
+        
+        .price {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #2c3e50;
+          margin: 0 0 1rem 0;
+          text-align: center;
+        }
+        
+        .btn {
+          display: block;
+          width: 100%;
+          text-align: center;
+          padding: 0.75rem 1.5rem;
+          background: transparent;
+          color: #3498db;
+          border: 2px solid #3498db;
+          border-radius: 6px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          
+          &:hover {
+            background: #3498db;
+            color: white;
+          }
+          
+          &-outline {
+            background: transparent;
+            color: #3498db;
+            
+            &:hover {
+              background: #3498db;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    padding: 4rem 1.5rem;
+    
+    .section-title {
+      font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+      font-size: 1rem;
+    }
+    
+    .typologies-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

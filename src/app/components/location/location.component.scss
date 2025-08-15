@@ -1,0 +1,142 @@
+// Main styles for the location component
+.location-section {
+  padding: 6rem 2rem;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  // Reuse reveal animation for location content
+  .location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    @extend .reveal;
+    
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #2b6cb0;
+      border-radius: 2px;
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .location-description {
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  
+  .location-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .feature {
+    display: flex;
+    gap: 1rem;
+    
+    i {
+      font-size: 1.5rem;
+      color: #2b6cb0;
+      margin-top: 0.25rem;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+      color: #2d3748;
+      margin: 0 0 0.25rem 0;
+    }
+    
+    p {
+      color: #4a5568;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  }
+  
+  .location-map {
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    .map-container {
+      position: relative;
+      padding-bottom: 75%; // 4:3 aspect ratio
+      height: 0;
+      overflow: hidden;
+      
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      height: 400px;
+      
+      .map-container {
+        padding-bottom: 0;
+        height: 100%;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      height: 300px;
+    }
+  }
+  
+  // Reveal animation
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

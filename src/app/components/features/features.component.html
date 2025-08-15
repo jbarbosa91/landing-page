@@ -1,0 +1,15 @@
+<section id="porque" class="section features-section">
+  <div class="container">
+    <h2 class="section-title">Porquê Escolher o Mira' Douro?</h2>
+    <p class="section-subtitle">Descubra as vantagens de viver num dos empreendimentos mais exclusivos de Vila Nova de Gaia</p>
+    
+    <div class="features-grid">
+      <div class="feature-card reveal" *ngFor="let feature of features; let i = index" [attr.data-delay]="i * 0.1">
+        <div class="feature-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3 class="feature-title">{{ feature }}</h3>
+      </div>
+    </div>
+  </div>
+</section>

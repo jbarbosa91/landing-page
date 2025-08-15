@@ -1,0 +1,63 @@
+<section id="localizacao" class="location-section">
+  <div class="container">
+    <div class="location-content reveal">
+      <div class="location-info">
+        <h2 class="section-title">Localização Privilegiada</h2>
+        <p class="location-description">
+          O Mira' Douro está estrategicamente localizado em {{ location }}, uma das zonas mais cobiçadas 
+          de Vila Nova de Gaia, com fácil acesso às principais vias rodoviárias e a poucos minutos do 
+          centro histórico do Porto.
+        </p>
+        
+        <div class="location-features">
+          <div class="feature">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h3>Localização</h3>
+              <p>{{ location }}</p>
+            </div>
+          </div>
+          
+          <div class="feature">
+            <i class="fas fa-car"></i>
+            <div>
+              <h3>Acessos</h3>
+              <p>10 min da Ponte do Infante<br>15 min do Aeroporto Sá Carneiro</p>
+            </div>
+          </div>
+          
+          <div class="feature">
+            <i class="fas fa-utensils"></i>
+            <div>
+              <h3>Comércio & Lazer</h3>
+              <p>Supermercados, restaurantes e espaços verdes a poucos minutos a pé</p>
+            </div>
+          </div>
+          
+          <div class="feature">
+            <i class="fas fa-subway"></i>
+            <div>
+              <h3>Transportes</h3>
+              <p>Paragem de autocarro a 200m<br>Estação de metro a 10 min a pé</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="location-map">
+        <div class="map-container">
+          <iframe 
+            [src]="safeMapsUrl"
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização do Mira' Douro">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

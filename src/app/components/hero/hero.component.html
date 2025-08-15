@@ -1,0 +1,33 @@
+<!-- Hero Component -->
+<section id="inicio" class="hero">
+  <!-- Background Image -->
+  <div class="hero-background" [style.backgroundImage]="backgroundImage">
+    <!-- Fallback content in case the image doesn't load -->
+    <div class="hero-fallback"></div>
+  </div>
+  
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+  
+  <!-- Content -->
+  <div class="hero-content">
+    <h1 class="hero-title">{{ hero.title }}</h1>
+    <p class="hero-subtitle">{{ hero.subtitle }}</p>
+    <div class="hero-buttons">
+      <button 
+        class="btn btn-primary"
+        (click)="scrollToContact()"
+        aria-label="Marcar visita">
+        <i class="fas fa-calendar-alt"></i> {{ hero.cta }}
+      </button>
+      <a 
+        href="/assets/dossier.pdf" 
+        class="btn btn-secondary"
+        download="Dossier-Mira-Douro.pdf"
+        aria-label="Descarregar dossier"
+        target="_blank">
+        <i class="fas fa-download"></i> Descarregar Dossier
+      </a>
+    </div>
+  </div>
+</section>
